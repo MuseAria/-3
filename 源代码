@@ -1,0 +1,20 @@
+int maxArea(vector<int>& height) {
+        int left=0,right=height.size()-1;
+        int maxarea=0,area=0;
+        while(left<right){
+            if(height[left]<=height[right]){
+                area=(right-left)*height[left];
+                if(maxarea<area){
+                    maxarea=area;
+                }
+                left=left+1;
+            }
+             if(height[left]>height[right]){
+                area=(right-left)*height[right];
+                if(maxarea<area){
+                    maxarea=area;
+                }
+                right=right-1;
+            }
+        }return maxarea;
+    }
